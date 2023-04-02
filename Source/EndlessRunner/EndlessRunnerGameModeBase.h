@@ -13,21 +13,25 @@ UCLASS()
 class ENDLESSRUNNER_API AEndlessRunnerGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
 protected:
 	virtual void BeginPlay() override;
 
-private:
-
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class ARunningPlatform> PlatformClass;
-
-	UPROPERTY()
-	int32 AmountOfTiles = 10;
-
-	UPROPERTY(EditDefaultsOnly)
-	FTransform NextSpawn;
-
+public:
 	UFUNCTION()
 	void SpawnPlatform();
+	
+private:
+	UPROPERTY(EditDefaultsOnly, Category = "Platform")
+	TSubclassOf<class ARunningPlatform> PlatformClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Platform")
+	int32 AmountOfTiles = 10;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Platform")
+	FTransform NextSpawn;
+	
+	ARunningPlatform* Platform;
+
+	UFUNCTION()
+	void CreateInitialPlatforms();
 };

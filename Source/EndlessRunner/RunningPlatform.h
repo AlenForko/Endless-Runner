@@ -22,13 +22,25 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleInstanceOnly)
+	class AEndlessRunnerGameModeBase* RunnerGameMode;
+
+	UFUNCTION()
+	void OnTriggerBoxOverlap(
+		UPrimitiveComponent* OverlappedComponent,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		int32 OtherBodyIndex,
+		bool bFromSweep,
+		const FHitResult& SweepResult);
+	
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+    // Called every frame
+    virtual void Tick(float DeltaTime) override;
 
 private:
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY()
 	USceneComponent* Root;
 
 	UPROPERTY(EditDefaultsOnly)
@@ -37,6 +49,8 @@ private:
 	UPROPERTY(EDitDefaultsOnly)
 	class UBoxComponent* BoxTriggerMesh;
 
+	UPROPERTY(EditAnywhere, Category = "Platform Speed")
+	float Speed = 150;
 	
-	
+	FVector CurrentLocation;
 };

@@ -3,8 +3,10 @@
 
 #include "RunningPlatform.h"
 
-#include "NavigationSystemTypes.h"
+#include "EndlessRunnerGameModeBase.h"
+#include "Runner.h"
 #include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ARunningPlatform::ARunningPlatform()
@@ -21,18 +23,40 @@ ARunningPlatform::ARunningPlatform()
 	BoxTriggerMesh = CreateDefaultSubobject<UBoxComponent>("Box Trigger");
 	BoxTriggerMesh->SetupAttachment(PlatformComponent);
 	BoxTriggerMesh->SetCollisionProfileName(TEXT("OverlapOnlyPawn"));
+	
 }
 
 // Called when the game starts or when spawned
 void ARunningPlatform::BeginPlay()
 {
 	Super::BeginPlay();
+
+	RunnerGameMode = Cast<AEndlessRunnerGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	
+	check(RunnerGameMode);
+	
+	BoxTriggerMesh->OnComponentBeginOverlap.AddDynamic(this, &ARunningPlatform::OnTriggerBoxOverlap);
 }
 
 // Called every frame
 void ARunningPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
+	CurrentLocation = GetActorLocation();
+	
+	CurrentLocation.X -= Speed * DeltaTime;
+	SetActorLocation(CurrentLocation);
 }
+
+void ARunningPlatform::OnTriggerBoxOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	ARunner* Runner = Cast<ARunner>(OtherActor);
+	
+	if(Runner)
+	{
+		RunnerGameMode->SpawnPlatform();
+	}
+}
+
 

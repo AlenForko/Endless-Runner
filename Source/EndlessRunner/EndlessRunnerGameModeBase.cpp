@@ -3,11 +3,17 @@
 
 #include "EndlessRunnerGameModeBase.h"
 #include "RunningPlatform.h"
+#include "Kismet/GameplayStatics.h"
 
 void AEndlessRunnerGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
 
+	CreateInitialPlatforms();
+}
+
+void AEndlessRunnerGameModeBase::CreateInitialPlatforms()
+{
 	for (int i = 0; i < AmountOfTiles; ++i)
 	{
 		SpawnPlatform();
@@ -20,12 +26,12 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 	
 	if(World)
 	{
-		ARunningPlatform* Platform = World->SpawnActor<ARunningPlatform>(PlatformClass, NextSpawn);
-
+		Platform = World->SpawnActor<ARunningPlatform>(PlatformClass, NextSpawn);
+		
 		if(Platform)
 		{
 			NextSpawn += Platform->NextSpawnPlatform;
+			Platform->SetFolderPath(TEXT("Platforms"));
 		}
 	}
 }
-

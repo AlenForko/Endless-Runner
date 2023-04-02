@@ -9,10 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3acffd1-2a28-49e4-8784-359a8835c410" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Actors/BP_RunningPlatform.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Actors/BP_RunningPlatform.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/MainMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MainMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" afterDir="false" />
@@ -25,6 +27,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Runner.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -33,18 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="C++ Project.EndlessRunner">
     <configuration name="EndlessRunner" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -168,7 +174,9 @@
       <option name="presentableId" value="Default" />
       <updated>1680383524071</updated>
       <workItem from="1680383527867" duration="7000" />
-      <workItem from="1680437584248" duration="3031000" />
+      <workItem from="1680437584248" duration="4003000" />
+      <workItem from="1680442822778" duration="2605000" />
+      <workItem from="1680447991676" duration="5376000" />
     </task>
     <servers />
   </component>
