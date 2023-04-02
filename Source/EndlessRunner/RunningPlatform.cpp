@@ -4,6 +4,7 @@
 #include "RunningPlatform.h"
 
 #include "NavigationSystemTypes.h"
+#include "Components/BoxComponent.h"
 
 // Sets default values
 ARunningPlatform::ARunningPlatform()
@@ -16,17 +17,16 @@ ARunningPlatform::ARunningPlatform()
 
 	PlatformComponent = CreateDefaultSubobject<UStaticMeshComponent>("Platform Component");
 	PlatformComponent->SetupAttachment(Root);
+
+	BoxTriggerMesh = CreateDefaultSubobject<UBoxComponent>("Box Trigger");
+	BoxTriggerMesh->SetupAttachment(PlatformComponent);
+	BoxTriggerMesh->SetCollisionProfileName(TEXT("OverlapOnlyPawn"));
 }
 
 // Called when the game starts or when spawned
 void ARunningPlatform::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if(GetWorld())
-	{
-		ARunningPlatform* RunningPlatform = GetWorld()->SpawnActor<ARunningPlatform>(GetActorLocation(), GetActorRotation());
-	}
 }
 
 // Called every frame

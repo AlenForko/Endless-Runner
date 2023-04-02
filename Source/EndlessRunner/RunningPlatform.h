@@ -14,7 +14,10 @@ class ENDLESSRUNNER_API ARunningPlatform : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ARunningPlatform();
-
+	
+	UPROPERTY(EditAnywhere)
+	FTransform NextSpawnPlatform;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -30,5 +33,10 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 	UStaticMeshComponent* PlatformComponent;
+
+	UPROPERTY(EDitDefaultsOnly)
+	class UBoxComponent* BoxTriggerMesh;
+
+	
 	
 };
