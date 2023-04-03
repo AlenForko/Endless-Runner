@@ -10,7 +10,7 @@ public class EndlessRunner : ModuleRules
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] { "EndlessRunner" });
+		PrivateDependencyModuleNames.AddRange(new string[] { "EndlessRunner", "CADKernel" });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

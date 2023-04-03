@@ -3,6 +3,9 @@
 
 #include "Runner.h"
 
+#include "CADKernel/UI/Display.h"
+#include "Kismet/GameplayStatics.h"
+
 // Sets default values
 ARunner::ARunner()
 {
@@ -10,7 +13,7 @@ ARunner::ARunner()
 	PrimaryActorTick.bCanEverTick = true;
 
 	Root = CreateDefaultSubobject<USceneComponent>("Root");
-	Root = RootComponent;
+	SetRootComponent(Root);
 
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("Spring Arm");
 	SpringArmComponent->SetupAttachment(Root);
@@ -30,7 +33,6 @@ void ARunner::BeginPlay()
 void ARunner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 	
 }
 
@@ -39,12 +41,12 @@ void ARunner::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	//PlayerInputComponent->BindAxis("Move Right", this, &ARunner::MoveRight);
+	PlayerInputComponent->BindAxis("Move Right", this, &ARunner::MoveRight);
 }
 
 void ARunner::MoveRight(float Value)
 {
-
+	AddMovementInput(FVector::RightVector, Value);
 }
 
 
