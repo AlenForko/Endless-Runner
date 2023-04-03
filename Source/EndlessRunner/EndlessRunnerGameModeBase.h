@@ -19,16 +19,22 @@ protected:
 public:
 	UFUNCTION()
 	void SpawnPlatform();
+
+	UFUNCTION()
+	void SpawnNewPlatforms();
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
 	TSubclassOf<class ARunningPlatform> PlatformClass;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
-	int32 AmountOfTiles = 10;
+	int32 AmountOfTiles = 11;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
 	FTransform NextSpawn;
+
+	UPROPERTY(EditAnywhere, Category = "New Platforms")
+	FTransform NewPlatformSpawn;
 	
 	ARunningPlatform* Platform;
 

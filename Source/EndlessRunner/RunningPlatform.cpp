@@ -19,10 +19,6 @@ ARunningPlatform::ARunningPlatform()
 
 	PlatformComponent = CreateDefaultSubobject<UStaticMeshComponent>("Platform Component");
 	PlatformComponent->SetupAttachment(Root);
-
-	BoxTriggerMesh = CreateDefaultSubobject<UBoxComponent>("Box Trigger");
-	BoxTriggerMesh->SetupAttachment(PlatformComponent);
-	BoxTriggerMesh->SetCollisionProfileName(TEXT("OverlapOnlyPawn"));
 	
 }
 
@@ -34,8 +30,6 @@ void ARunningPlatform::BeginPlay()
 	RunnerGameMode = Cast<AEndlessRunnerGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	
 	check(RunnerGameMode);
-	
-	BoxTriggerMesh->OnComponentBeginOverlap.AddDynamic(this, &ARunningPlatform::OnTriggerBoxOverlap);
 }
 
 // Called every frame
@@ -47,15 +41,11 @@ void ARunningPlatform::Tick(float DeltaTime)
 	
 	CurrentLocation.X -= Speed * DeltaTime;
 	SetActorLocation(CurrentLocation);
-}
 
-void ARunningPlatform::OnTriggerBoxOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	ARunner* Runner = Cast<ARunner>(OtherActor);
-	
-	if(Runner)
+	if(CurrentLocation.X <= DestroyPosition)
 	{
-		RunnerGameMode->SpawnPlatform();
+		Destroy();
+		RunnerGameMode->SpawnNewPlatforms();
 	}
 }
 

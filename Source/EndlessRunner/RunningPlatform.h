@@ -15,24 +15,12 @@ public:
 	// Sets default values for this actor's properties
 	ARunningPlatform();
 	
-	UPROPERTY(EditAnywhere)
-	FTransform NextSpawnPlatform;
-	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleInstanceOnly)
 	class AEndlessRunnerGameModeBase* RunnerGameMode;
-
-	UFUNCTION()
-	void OnTriggerBoxOverlap(
-		UPrimitiveComponent* OverlappedComponent,
-		AActor* OtherActor,
-		UPrimitiveComponent* OtherComp,
-		int32 OtherBodyIndex,
-		bool bFromSweep,
-		const FHitResult& SweepResult);
 	
 public:	
     // Called every frame
@@ -46,11 +34,11 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	UStaticMeshComponent* PlatformComponent;
 
-	UPROPERTY(EDitDefaultsOnly)
-	class UBoxComponent* BoxTriggerMesh;
-
 	UPROPERTY(EditAnywhere, Category = "Platform Speed")
 	float Speed = 150;
+
+	UPROPERTY(EditAnywhere)
+	float DestroyPosition;
 	
 	FVector CurrentLocation;
 };

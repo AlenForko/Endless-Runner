@@ -3,7 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Camera/CameraComponent.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "Runner.generated.h"
 
 UCLASS()
@@ -26,4 +28,16 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+private:
+	UPROPERTY(VisibleDefaultsOnly)
+	USceneComponent* Root;
+
+	UPROPERTY(EditAnywhere)
+	USpringArmComponent* SpringArmComponent;
+
+	UPROPERTY(EditAnywhere)
+	UCameraComponent* CameraComponent;
+	
+	UFUNCTION()
+	void MoveRight(float Value);
 };

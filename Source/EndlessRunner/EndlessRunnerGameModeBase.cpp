@@ -26,12 +26,26 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 	
 	if(World)
 	{
-		Platform = World->SpawnActor<ARunningPlatform>(PlatformClass, NextSpawn);
+		Platform = World->SpawnActor<ARunningPlatform>(PlatformClass, NewPlatformSpawn);
 		
 		if(Platform)
 		{
-			NextSpawn += Platform->NextSpawnPlatform;
+			NewPlatformSpawn += NextSpawn;
 			Platform->SetFolderPath(TEXT("Platforms"));
+			
 		}
+		
 	}
 }
+
+void AEndlessRunnerGameModeBase::SpawnNewPlatforms()
+{
+	if(GetWorld())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("OLD Platform pos: %f"), Platform->GetActorLocation().X);
+		Platform = GetWorld()->SpawnActor<ARunningPlatform>(PlatformClass, Platform->GetTransform() + NextSpawn);
+		Platform->SetFolderPath(TEXT("Platforms"));
+		UE_LOG(LogTemp, Warning, TEXT("NEW Platform pos: %f"), Platform->GetActorLocation().X);
+	}
+}
+
