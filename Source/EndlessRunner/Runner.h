@@ -38,8 +38,6 @@ private:
 	UPROPERTY(EditAnywhere)
 	UCameraComponent* CameraComponent;
 	
-	UFUNCTION()
 	void MoveRight(float Value);
-
-	FVector BoundLocation = FVector(0, 200.f, 0);
+	
 };

@@ -2,8 +2,7 @@
 
 
 #include "Runner.h"
-
-#include "CADKernel/UI/Display.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -13,7 +12,7 @@ ARunner::ARunner()
 	PrimaryActorTick.bCanEverTick = true;
 
 	Root = CreateDefaultSubobject<USceneComponent>("Root");
-	SetRootComponent(Root);
+	RootComponent = Root;
 
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("Spring Arm");
 	SpringArmComponent->SetupAttachment(Root);

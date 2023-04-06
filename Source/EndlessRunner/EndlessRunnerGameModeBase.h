@@ -21,7 +21,7 @@ public:
 	void SpawnPlatform();
 
 	UFUNCTION()
-	void SpawnNewPlatforms();
+	void SpawnNewPlatforms(float XPosition);
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
@@ -36,7 +36,7 @@ private:
 	UPROPERTY(EditAnywhere, Category = "New Platforms")
 	FTransform NewPlatformSpawn;
 	
-	ARunningPlatform* Platform;
+	ARunningPlatform* LastPlatform;
 
 	UFUNCTION()
 	void CreateInitialPlatforms();

@@ -39,6 +39,6 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	float DestroyPosition;
-	
+
 	FVector CurrentLocation;
 };

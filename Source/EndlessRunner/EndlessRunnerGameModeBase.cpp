@@ -26,26 +26,30 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 	
 	if(World)
 	{
-		Platform = World->SpawnActor<ARunningPlatform>(PlatformClass, NewPlatformSpawn);
+		LastPlatform = World->SpawnActor<ARunningPlatform>(PlatformClass, NewPlatformSpawn);
 		
-		if(Platform)
+		if(LastPlatform)
 		{
 			NewPlatformSpawn += NextSpawn;
-			Platform->SetFolderPath(TEXT("Platforms"));
-			
+			LastPlatform->SetFolderPath(TEXT("Platforms"));	
 		}
-		
 	}
 }
 
-void AEndlessRunnerGameModeBase::SpawnNewPlatforms()
+void AEndlessRunnerGameModeBase::SpawnNewPlatforms(float XPosition)
 {
 	if(GetWorld())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("OLD Platform pos: %f"), Platform->GetActorLocation().X);
-		Platform = GetWorld()->SpawnActor<ARunningPlatform>(PlatformClass, Platform->GetTransform() + NextSpawn);
-		Platform->SetFolderPath(TEXT("Platforms"));
-		UE_LOG(LogTemp, Warning, TEXT("NEW Platform pos: %f"), Platform->GetActorLocation().X);
+		UE_LOG(LogTemp, Warning, TEXT("OLD Platform pos: %f"), LastPlatform->GetActorLocation().X);
+		
+		FTransform NewTransform = LastPlatform->GetTransform() + NextSpawn;
+		//FVector NewLocation = NewTransform.GetLocation();
+		//NewLocation.X = XPosition + NextSpawn.GetLocation().X;
+		//NewTransform.SetLocation(NewLocation);
+		LastPlatform = GetWorld()->SpawnActor<ARunningPlatform>(PlatformClass, NewTransform);
+		LastPlatform->SetFolderPath(TEXT("Platforms"));
+		
+		UE_LOG(LogTemp, Warning, TEXT("NEW Platform pos: %f"), LastPlatform->GetActorLocation().X);
 	}
 }
 

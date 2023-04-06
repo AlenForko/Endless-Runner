@@ -44,8 +44,8 @@ void ARunningPlatform::Tick(float DeltaTime)
 
 	if(CurrentLocation.X <= DestroyPosition)
 	{
+		RunnerGameMode->SpawnNewPlatforms(CurrentLocation.X);
 		Destroy();
-		RunnerGameMode->SpawnNewPlatforms();
 	}
 }
 
