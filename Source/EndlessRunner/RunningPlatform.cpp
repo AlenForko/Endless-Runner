@@ -5,7 +5,6 @@
 
 #include "EndlessRunnerGameModeBase.h"
 #include "Runner.h"
-#include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values

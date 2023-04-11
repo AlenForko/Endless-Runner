@@ -10,15 +10,6 @@ ARunner::ARunner()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	Root = CreateDefaultSubobject<USceneComponent>("Root");
-	RootComponent = Root;
-
-	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("Spring Arm");
-	SpringArmComponent->SetupAttachment(Root);
-
-	CameraComponent = CreateDefaultSubobject<UCameraComponent>("Camera Component");
-	CameraComponent->SetupAttachment(SpringArmComponent);
 }
 
 // Called when the game starts or when spawned
@@ -32,6 +23,9 @@ void ARunner::BeginPlay()
 void ARunner::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	//MoveForward();
+
 	
 }
 
@@ -45,7 +39,17 @@ void ARunner::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ARunner::MoveRight(float Value)
 {
-	AddMovementInput(FVector::RightVector, Value);
+	AddMovementInput(GetActorRightVector() * Value);
+	
+}
+
+void ARunner::MoveForward()
+{
+	// FVector Velocity = GetMovementComponent()->Velocity;
+	//
+	// Velocity.X = GetMovementComponent()->GetMaxSpeed();
+	//
+	// GetMovementComponent()->Velocity = Velocity;
 }
 
 

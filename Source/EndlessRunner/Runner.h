@@ -29,15 +29,11 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
-	UPROPERTY(VisibleDefaultsOnly)
-	USceneComponent* Root;
 
 	UPROPERTY(EditAnywhere)
-	USpringArmComponent* SpringArmComponent;
-
-	UPROPERTY(EditAnywhere)
-	UCameraComponent* CameraComponent;
-	
+	float MovementSpeed;
 	void MoveRight(float Value);
+
+	void MoveForward();
 	
 };

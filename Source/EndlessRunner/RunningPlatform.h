@@ -33,7 +33,7 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 	UStaticMeshComponent* PlatformComponent;
-
+	
 	UPROPERTY(EditAnywhere, Category = "Platform Speed")
 	float Speed = 150;
 
