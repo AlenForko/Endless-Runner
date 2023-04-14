@@ -19,16 +19,6 @@ void ARunner::BeginPlay()
 	
 }
 
-// Called every frame
-void ARunner::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	//MoveForward();
-
-	
-}
-
 // Called to bind functionality to input
 void ARunner::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -41,15 +31,6 @@ void ARunner::MoveRight(float Value)
 {
 	AddMovementInput(GetActorRightVector() * Value);
 	
-}
-
-void ARunner::MoveForward()
-{
-	// FVector Velocity = GetMovementComponent()->Velocity;
-	//
-	// Velocity.X = GetMovementComponent()->GetMaxSpeed();
-	//
-	// GetMovementComponent()->Velocity = Velocity;
 }
 
 

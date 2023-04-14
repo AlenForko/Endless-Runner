@@ -9,14 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3acffd1-2a28-49e4-8784-359a8835c410" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/A_Blueprint.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Actors/BP_RunningPlatform.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Actors/BP_RunningPlatform.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/MainMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MainMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UnrealEditor-RD.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UnrealEditor-RD.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UnrealEditor-RiderBlueprint.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UnrealEditor-RiderBlueprint.pdb" afterDir="false" />
@@ -260,6 +256,9 @@
       <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UnrealEditor/Development/RiderShaderInfo/UnrealEditor-RiderShaderInfo.suppressed.exp" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UnrealEditor/Development/RiderShaderInfo/UnrealEditor-RiderShaderInfo.suppressed.exp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/RunningPlatform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/RunningPlatform.cpp" afterDir="false" />
@@ -275,7 +274,6 @@
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Obstacle.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Runner.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../GameDevCourse/SharpShooter/Source/SharpShooter/PlayerCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -430,6 +428,8 @@
       <workItem from="1680780277467" duration="6034000" />
       <workItem from="1681214750644" duration="779000" />
       <workItem from="1681215888363" duration="804000" />
+      <workItem from="1681471558373" duration="1186000" />
+      <workItem from="1681472891397" duration="2814000" />
     </task>
     <servers />
   </component>

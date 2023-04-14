@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "RunningPlatform.generated.h"
 
+
 UCLASS()
 class ENDLESSRUNNER_API ARunningPlatform : public AActor
 {
@@ -26,13 +27,27 @@ public:
     // Called every frame
     virtual void Tick(float DeltaTime) override;
 
-private:
+	UFUNCTION()
+	void SpawnObstacle();
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class AObstacle> ObstacleClass;
+
+protected:
 	UPROPERTY()
-	USceneComponent* Root;
+	class USceneComponent* Root;
 
 	UPROPERTY(EditDefaultsOnly)
-	UStaticMeshComponent* PlatformComponent;
+	class UStaticMeshComponent* PlatformComponent;
+
+	UPROPERTY(EditDefaultsOnly)
+	class UArrowComponent* MiddleLane;
+	
+	UPROPERTY(EditDefaultsOnly)
+	class UArrowComponent* LeftLane;
+	
+	UPROPERTY(EditDefaultsOnly)
+	class UArrowComponent* RightLane;
 	
 	UPROPERTY(EditAnywhere, Category = "Platform Speed")
 	float Speed = 150;
@@ -41,4 +56,7 @@ private:
 	float DestroyPosition;
 
 	FVector CurrentLocation;
+
+	UFUNCTION()
+	void SpawnLaneObstacles(UArrowComponent* Lane);
 };

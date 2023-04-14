@@ -18,10 +18,7 @@ protected:
 
 public:
 	UFUNCTION()
-	void SpawnPlatform();
-
-	UFUNCTION()
-	void SpawnNewPlatforms(float XPosition);
+	void SpawnNewPlatforms();
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
@@ -40,4 +37,7 @@ private:
 
 	UFUNCTION()
 	void CreateInitialPlatforms();
+
+	UFUNCTION()
+	void SpawnPlatform();
 };

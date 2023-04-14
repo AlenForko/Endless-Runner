@@ -4,8 +4,11 @@
 #include "RunningPlatform.h"
 
 #include "EndlessRunnerGameModeBase.h"
+#include "Obstacle.h"
 #include "Runner.h"
+#include "Components/ArrowComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 ARunningPlatform::ARunningPlatform()
@@ -18,7 +21,15 @@ ARunningPlatform::ARunningPlatform()
 
 	PlatformComponent = CreateDefaultSubobject<UStaticMeshComponent>("Platform Component");
 	PlatformComponent->SetupAttachment(Root);
-	
+
+	MiddleLane = CreateDefaultSubobject<UArrowComponent>("Middle Lane");
+	MiddleLane->SetupAttachment(Root);
+
+	RightLane = CreateDefaultSubobject<UArrowComponent>("Right Lane");
+	RightLane->SetupAttachment(Root);
+
+	LeftLane = CreateDefaultSubobject<UArrowComponent>("Left Lane");
+	LeftLane->SetupAttachment(Root);
 }
 
 // Called when the game starts or when spawned
@@ -43,8 +54,33 @@ void ARunningPlatform::Tick(float DeltaTime)
 
 	if(CurrentLocation.X <= DestroyPosition)
 	{
-		RunnerGameMode->SpawnNewPlatforms(CurrentLocation.X);
+		RunnerGameMode->SpawnNewPlatforms();
 		Destroy();
+	}
+}
+
+void ARunningPlatform::SpawnObstacle()
+{
+	if(IsValid(ObstacleClass))
+	{
+		SpawnLaneObstacles(MiddleLane);
+		SpawnLaneObstacles(RightLane);
+		SpawnLaneObstacles(LeftLane);
+	}
+}
+
+void ARunningPlatform::SpawnLaneObstacles(UArrowComponent* Lane)
+{
+	const float RandomValue = FMath::RandRange(0, 1);
+
+	FActorSpawnParameters SpawnParameters;
+	SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	const FTransform& SpawnLocation = Lane->GetComponentTransform();
+
+	if(UKismetMathLibrary::InRange_FloatFloat(RandomValue, 0.5, 1, true, true))
+	{
+		AObstacle* Obstacle = GetWorld()->SpawnActor<AObstacle>(ObstacleClass, SpawnLocation, SpawnParameters);
 	}
 }
 
