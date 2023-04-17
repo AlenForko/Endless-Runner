@@ -2,6 +2,8 @@
 
 
 #include "EndlessRunnerGameModeBase.h"
+
+#include "Obstacle.h"
 #include "RunningPlatform.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -41,10 +43,10 @@ void AEndlessRunnerGameModeBase::SpawnNewPlatforms()
 	if(GetWorld())
 	{
 		LastPlatform->SpawnObstacle();
+		
 		FTransform NewTransform = LastPlatform->GetTransform() + NextSpawn;
 		LastPlatform = GetWorld()->SpawnActor<ARunningPlatform>(PlatformClass, NewTransform);
 		LastPlatform->SetFolderPath(TEXT("Platforms"));
-
 	}
 }
 

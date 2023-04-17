@@ -3,6 +3,8 @@
 
 #include "Obstacle.h"
 
+#include "Components/BoxComponent.h"
+
 // Sets default values
 AObstacle::AObstacle()
 {
@@ -14,4 +16,37 @@ AObstacle::AObstacle()
 
 	ObstacleMesh = CreateDefaultSubobject<UStaticMeshComponent>("Obstacle Mesh");
 	ObstacleMesh->SetupAttachment(Root);
+
+	BoxCollision = CreateDefaultSubobject<UBoxComponent>("Box Collision");
+	BoxCollision->SetupAttachment(Root);
+	BoxCollision->SetGenerateOverlapEvents(true);
+	BoxCollision->OnComponentBeginOverlap.AddDynamic(this, &AObstacle::OnOverlapBegin);
 }
+
+void AObstacle::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+		
+	ObstacleLocation = GetActorLocation();
+
+	ObstacleLocation.X -= ObstacleSpeed * DeltaTime;
+
+	SetActorLocation(ObstacleLocation);
+
+	if(ObstacleLocation.X <= DestroyLocation)
+	{
+		Destroy();
+	}
+}
+
+void AObstacle::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	UE_LOG(LogTemp, Display, TEXT("Actor name: %s"), *OtherActor->GetName())
+	if(OtherActor)
+	{
+		Destroy();
+	}
+	
+}
+

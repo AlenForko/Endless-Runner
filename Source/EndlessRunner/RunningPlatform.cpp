@@ -61,7 +61,7 @@ void ARunningPlatform::Tick(float DeltaTime)
 
 void ARunningPlatform::SpawnObstacle()
 {
-	if(IsValid(ObstacleClass))
+	if(ObstacleClass)
 	{
 		SpawnLaneObstacles(MiddleLane);
 		SpawnLaneObstacles(RightLane);
@@ -78,7 +78,11 @@ void ARunningPlatform::SpawnLaneObstacles(UArrowComponent* Lane)
 
 	const FTransform& SpawnLocation = Lane->GetComponentTransform();
 
-	if(UKismetMathLibrary::InRange_FloatFloat(RandomValue, 0.5, 1, true, true))
+	if(UKismetMathLibrary::InRange_FloatFloat(RandomValue,
+		0.5,
+		1,
+		true,
+		true))
 	{
 		AObstacle* Obstacle = GetWorld()->SpawnActor<AObstacle>(ObstacleClass, SpawnLocation, SpawnParameters);
 	}

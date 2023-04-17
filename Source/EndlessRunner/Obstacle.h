@@ -15,10 +15,28 @@ public:
 	// Sets default values for this actor's properties
 	AObstacle();
 
+	virtual void Tick(float DeltaTime) override;
+	
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* Root;
 
 	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent* ObstacleMesh;
 
+	UPROPERTY(EditAnywhere)
+	class UBoxComponent* BoxCollision;
+private:
+	
+	FVector ObstacleLocation;
+
+	float DestroyLocation = -1000.f;
+
+	float ObstacleSpeed = 600.f;
+
+	UFUNCTION()
+	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp,
+		class AActor* OtherActor, class UPrimitiveComponent* OtherComp,
+		int32 OtherBodyIndex,
+		bool bFromSweep,
+		const FHitResult& SweepResult);
 };
