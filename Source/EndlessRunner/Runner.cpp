@@ -25,12 +25,11 @@ void ARunner::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	PlayerInputComponent->BindAxis("Move Right", this, &ARunner::MoveRight);
+	PlayerInputComponent->BindAction("Jump", EInputEvent::IE_Pressed, this, &ACharacter::Jump);
 }
 
 void ARunner::MoveRight(float Value)
 {
 	AddMovementInput(GetActorRightVector() * Value);
-	
 }
-
 

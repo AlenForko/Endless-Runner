@@ -32,5 +32,4 @@ private:
 
 	UFUNCTION()
 	void MoveRight(float Value);
-	
 };

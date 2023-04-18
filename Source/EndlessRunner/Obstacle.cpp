@@ -42,11 +42,6 @@ void AObstacle::Tick(float DeltaTime)
 void AObstacle::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
 	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	UE_LOG(LogTemp, Display, TEXT("Actor name: %s"), *OtherActor->GetName())
-	if(OtherActor)
-	{
-		Destroy();
-	}
-	
+	Destroy();
 }
 
