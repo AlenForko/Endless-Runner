@@ -30,14 +30,6 @@ void ACoins::BeginPlay()
 	SphereCollision->OnComponentBeginOverlap.AddDynamic(this, &ACoins::OnOverlapBegin);
 }
 
-// Called every frame
-void ACoins::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	
-}
-
 void ACoins::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if(OtherActor != nullptr)

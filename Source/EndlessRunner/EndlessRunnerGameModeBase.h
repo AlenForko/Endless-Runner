@@ -22,9 +22,6 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditDefaultsOnly)
-	TArray<TSubclassOf<AActor>> ObjectActors;
-
 	TArray<AActor*> ObjectsInScene;
 	
 private:

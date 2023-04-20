@@ -14,8 +14,6 @@ class ENDLESSRUNNER_API AObstacle : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AObstacle();
-
-	virtual void Tick(float DeltaTime) override;
 	
 	UPROPERTY(VisibleAnywhere)
 	class USceneComponent* Root;

@@ -22,19 +22,6 @@ AObstacle::AObstacle()
 	BoxCollision->SetGenerateOverlapEvents(true);
 }
 
-void AObstacle::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-		
-	// ObstacleLocation = GetActorLocation();
-	// ObstacleLocation.X -= ObstacleSpeed * DeltaTime;
-	// SetActorLocation(ObstacleLocation);
-	//
-	// if(ObstacleLocation.X <= DestroyLocation)
-	// {
-	// 	Destroy();
-	// }
-}
 
 void AObstacle::BeginPlay()
 {

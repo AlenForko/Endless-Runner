@@ -43,22 +43,6 @@ void ARunningPlatform::BeginPlay()
 	check(RunnerGameMode);
 }
 
-// Called every frame
-void ARunningPlatform::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	
-	// CurrentLocation = GetActorLocation();
-	//
-	// CurrentLocation.X -= Speed * DeltaTime;
-	// SetActorLocation(CurrentLocation);
-	//
-	// if(CurrentLocation.X <= DestroyPosition)
-	// {
-	// 	RunnerGameMode->SpawnNewPlatforms();
-	// 	Destroy();
-	// }
-}
 
 void ARunningPlatform::SpawnObject()
 {
