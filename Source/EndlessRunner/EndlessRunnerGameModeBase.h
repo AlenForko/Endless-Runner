@@ -15,10 +15,17 @@ class ENDLESSRUNNER_API AEndlessRunnerGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 protected:
 	virtual void BeginPlay() override;
-
+	AEndlessRunnerGameModeBase();
 public:
 	UFUNCTION()
 	void SpawnNewPlatforms();
+
+	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(EditDefaultsOnly)
+	TArray<TSubclassOf<AActor>> ObjectActors;
+
+	TArray<AActor*> ObjectsInScene;
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
@@ -40,4 +47,9 @@ private:
 
 	UFUNCTION()
 	void SpawnPlatform();
+
+	void MoveObjects(TArray<AActor*> Actors, float DeltaTime);
+
+	float DestroyLocation = -1000.f;
+	float Speed = 600.f;
 };

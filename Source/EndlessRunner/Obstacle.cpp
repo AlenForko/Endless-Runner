@@ -2,7 +2,7 @@
 
 
 #include "Obstacle.h"
-
+#include "Runner.h"
 #include "Components/BoxComponent.h"
 
 // Sets default values
@@ -20,28 +20,41 @@ AObstacle::AObstacle()
 	BoxCollision = CreateDefaultSubobject<UBoxComponent>("Box Collision");
 	BoxCollision->SetupAttachment(Root);
 	BoxCollision->SetGenerateOverlapEvents(true);
-	BoxCollision->OnComponentBeginOverlap.AddDynamic(this, &AObstacle::OnOverlapBegin);
 }
 
 void AObstacle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 		
-	ObstacleLocation = GetActorLocation();
+	// ObstacleLocation = GetActorLocation();
+	// ObstacleLocation.X -= ObstacleSpeed * DeltaTime;
+	// SetActorLocation(ObstacleLocation);
+	//
+	// if(ObstacleLocation.X <= DestroyLocation)
+	// {
+	// 	Destroy();
+	// }
+}
 
-	ObstacleLocation.X -= ObstacleSpeed * DeltaTime;
+void AObstacle::BeginPlay()
+{
+	Super::BeginPlay();
 
-	SetActorLocation(ObstacleLocation);
-
-	if(ObstacleLocation.X <= DestroyLocation)
-	{
-		Destroy();
-	}
+	BoxCollision->OnComponentBeginOverlap.AddDynamic(this, &AObstacle::OnOverlapBegin);
 }
 
 void AObstacle::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
-	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+                               int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	Destroy();
+	if(OtherActor != nullptr)
+	{
+		ARunner* Runner = Cast<ARunner>(OtherActor);
+		if(Runner)
+		{
+			//Deduct from health.
+			//Health--;
+			Destroy();
+		}
+	}
 }
 

@@ -6,6 +6,6 @@
 /NAME:"UnrealEditor-RiderBlueprint.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"C:\Users\alen.forko\Documents\Projects\EndlessRunner\EndlessRunner\Endless-Runner\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderBlueprint\Module.RiderBlueprint.cpp.obj"
-"C:\Users\alen.forko\Documents\Projects\EndlessRunner\EndlessRunner\Endless-Runner\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderBlueprint\Default.rc2.res"
-/OUT:"C:\Users\alen.forko\Documents\Projects\EndlessRunner\EndlessRunner\Endless-Runner\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderBlueprint\UnrealEditor-RiderBlueprint.lib"
+"C:\Users\Alen Forko\Documents\Projects\Endless-Runner\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderBlueprint\Module.RiderBlueprint.cpp.obj"
+"C:\Users\Alen Forko\Documents\Projects\Endless-Runner\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderBlueprint\Default.rc2.res"
+/OUT:"C:\Users\Alen Forko\Documents\Projects\Endless-Runner\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderBlueprint\UnrealEditor-RiderBlueprint.lib"

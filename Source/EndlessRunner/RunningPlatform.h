@@ -28,10 +28,13 @@ public:
     virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION()
-	void SpawnObstacle();
+	void SpawnObject();
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<class AObstacle> ObstacleClass;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class ACoins> CoinsClass;
 
 protected:
 	UPROPERTY()
@@ -58,5 +61,5 @@ protected:
 	FVector CurrentLocation;
 
 	UFUNCTION()
-	void SpawnLaneObstacles(UArrowComponent* Lane);
+	void SpawnLaneObstacles(const UArrowComponent* Lane) const;
 };

@@ -2,7 +2,7 @@
 
 
 #include "RunningPlatform.h"
-
+#include "Coins.h"
 #include "EndlessRunnerGameModeBase.h"
 #include "Obstacle.h"
 #include "Runner.h"
@@ -10,6 +10,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 
+class ACoins;
 // Sets default values
 ARunningPlatform::ARunningPlatform()
 {
@@ -47,19 +48,19 @@ void ARunningPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	CurrentLocation = GetActorLocation();
-	
-	CurrentLocation.X -= Speed * DeltaTime;
-	SetActorLocation(CurrentLocation);
-
-	if(CurrentLocation.X <= DestroyPosition)
-	{
-		RunnerGameMode->SpawnNewPlatforms();
-		Destroy();
-	}
+	// CurrentLocation = GetActorLocation();
+	//
+	// CurrentLocation.X -= Speed * DeltaTime;
+	// SetActorLocation(CurrentLocation);
+	//
+	// if(CurrentLocation.X <= DestroyPosition)
+	// {
+	// 	RunnerGameMode->SpawnNewPlatforms();
+	// 	Destroy();
+	// }
 }
 
-void ARunningPlatform::SpawnObstacle()
+void ARunningPlatform::SpawnObject()
 {
 	if(ObstacleClass)
 	{
@@ -69,7 +70,7 @@ void ARunningPlatform::SpawnObstacle()
 	}
 }
 
-void ARunningPlatform::SpawnLaneObstacles(UArrowComponent* Lane)
+void ARunningPlatform::SpawnLaneObstacles(const UArrowComponent* Lane) const
 {
 	const float RandomValue = FMath::RandRange(0, 1);
 
@@ -85,6 +86,12 @@ void ARunningPlatform::SpawnLaneObstacles(UArrowComponent* Lane)
 		true))
 	{
 		AObstacle* Obstacle = GetWorld()->SpawnActor<AObstacle>(ObstacleClass, SpawnLocation, SpawnParameters);
+		RunnerGameMode->ObjectsInScene.Add(Obstacle);
+	}
+	else
+	{
+	    ACoins* Coins = GetWorld()->SpawnActor<ACoins>(CoinsClass, SpawnLocation, SpawnParameters);
+		RunnerGameMode->ObjectsInScene.Add(Coins);
 	}
 }
 

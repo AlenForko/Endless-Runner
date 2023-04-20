@@ -14,6 +14,12 @@ void AEndlessRunnerGameModeBase::BeginPlay()
 	CreateInitialPlatforms();
 }
 
+AEndlessRunnerGameModeBase::AEndlessRunnerGameModeBase()
+{
+	PrimaryActorTick.bStartWithTickEnabled = true;
+	PrimaryActorTick.bCanEverTick = true;
+}
+
 void AEndlessRunnerGameModeBase::CreateInitialPlatforms()
 {
 	for (int i = 0; i < AmountOfTiles; ++i)
@@ -29,6 +35,7 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 	if(World)
 	{
 		LastPlatform = World->SpawnActor<ARunningPlatform>(PlatformClass, NewPlatformSpawn);
+		ObjectsInScene.Add(LastPlatform);
 		
 		if(LastPlatform)
 		{
@@ -38,15 +45,41 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 	}
 }
 
+void AEndlessRunnerGameModeBase::MoveObjects(TArray<AActor*> Actors, float DeltaTime)
+{
+	for (auto Object : Actors)
+	{
+			
+		FVector ObjectLocation = Object->GetActorLocation();
+
+		ObjectLocation.X -= Speed * DeltaTime;
+		Object->SetActorLocation(ObjectLocation);
+
+		if(ObjectLocation.X <= DestroyLocation)
+		{
+			SpawnNewPlatforms();
+			ObjectsInScene.Remove(Object);
+			Object->Destroy();
+		}
+	}
+}
+
 void AEndlessRunnerGameModeBase::SpawnNewPlatforms()
 {
 	if(GetWorld())
 	{
-		LastPlatform->SpawnObstacle();
+		LastPlatform->SpawnObject();
 		
 		FTransform NewTransform = LastPlatform->GetTransform() + NextSpawn;
 		LastPlatform = GetWorld()->SpawnActor<ARunningPlatform>(PlatformClass, NewTransform);
-		LastPlatform->SetFolderPath(TEXT("Platforms"));
+		LastPlatform->SetFolderPath(TEXT("Platforms/Obstacles"));
+		ObjectsInScene.Add(LastPlatform);
 	}
+}
+
+void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	MoveObjects(ObjectsInScene, DeltaTime);
 }
 
