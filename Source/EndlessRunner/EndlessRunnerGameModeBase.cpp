@@ -3,21 +3,37 @@
 
 #include "EndlessRunnerGameModeBase.h"
 
+#include "GameHud.h"
 #include "Obstacle.h"
 #include "RunningPlatform.h"
+#include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
-
-void AEndlessRunnerGameModeBase::BeginPlay()
-{
-	Super::BeginPlay();
-
-	CreateInitialPlatforms();
-}
 
 AEndlessRunnerGameModeBase::AEndlessRunnerGameModeBase()
 {
 	PrimaryActorTick.bStartWithTickEnabled = true;
 	PrimaryActorTick.bCanEverTick = true;
+}
+
+void AEndlessRunnerGameModeBase::BeginPlay()
+{
+	Super::BeginPlay();
+
+	UGameplayStatics::GetPlayerController(GetWorld(), 0)->bShowMouseCursor = true;
+
+	GameHud = Cast<UGameHud>(CreateWidget(GetWorld(), GameHudClass));
+	check(GameHud) // Checks if the HUD is there, otherwise crash game.
+	
+	GameHud->AddToViewport();
+	
+	CreateInitialPlatforms();
+}
+
+void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	
+	MoveObjects(ObjectsInScene, DeltaTime);
 }
 
 void AEndlessRunnerGameModeBase::CreateInitialPlatforms()
@@ -77,9 +93,5 @@ void AEndlessRunnerGameModeBase::SpawnNewPlatforms()
 	}
 }
 
-void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	MoveObjects(ObjectsInScene, DeltaTime);
-}
+
 

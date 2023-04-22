@@ -37,8 +37,7 @@ void ACoins::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAc
 		ARunner* Runner = Cast<ARunner>(OtherActor);
 		if(Runner)
 		{
-			//Add 1 point to score;
-			//Score++;
+			Runner->AddCoin();
 			Destroy();
 		}
 	}

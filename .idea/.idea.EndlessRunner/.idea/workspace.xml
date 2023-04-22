@@ -9,16 +9,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3acffd1-2a28-49e4-8784-359a8835c410" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Animations/A_Blueprint.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/UMG/Widget_GameHUD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/GameHud.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/GameHud.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/A_Blueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/A_Blueprint.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/MainMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MainMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndlessRunner.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/EndlessRunner.uproject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Coins.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Coins.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Coins.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Coins.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunner.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunner.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Obstacle.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/RunningPlatform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/RunningPlatform.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/RunningPlatform.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/RunningPlatform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +34,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Coins.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Coins.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameHud.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameHud.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Obstacle.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Obstacle.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -195,6 +203,7 @@
       <workItem from="1681916119104" duration="305000" />
       <workItem from="1681924578516" duration="700000" />
       <workItem from="1681992144353" duration="6637000" />
+      <workItem from="1682161171922" duration="3966000" />
     </task>
     <servers />
   </component>
