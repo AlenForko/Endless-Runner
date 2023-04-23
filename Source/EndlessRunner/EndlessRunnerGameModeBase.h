@@ -75,5 +75,5 @@ private:
 	
 	int32 TotalPoints;
 
-	
+	float StartTime;
 };

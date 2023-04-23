@@ -38,8 +38,7 @@ void AObstacle::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Othe
 		ARunner* Runner = Cast<ARunner>(OtherActor);
 		if(Runner)
 		{
-			//Deduct from health.
-			//Health--;
+			Runner->DeductHealth(1);
 			
 			this->ObstacleMesh->SetVisibility(false);
 			this->ObstacleMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);

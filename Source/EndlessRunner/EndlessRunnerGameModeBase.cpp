@@ -19,6 +19,8 @@ void AEndlessRunnerGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
 
+	StartTime = GetWorld()->GetRealTimeSeconds();
+
 	UGameplayStatics::GetPlayerController(GetWorld(), 0)->bShowMouseCursor = true;
 
 	GameHud = Cast<UGameHud>(CreateWidget(GetWorld(), GameHudClass));
@@ -37,6 +39,10 @@ void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	
 	//Speed += 0.01f;
+
+	float ElapsedTime = GetWorld()->GetRealTimeSeconds() - StartTime;
+	
+	TotalPoints = FMath::FloorToInt(ElapsedTime);
 	
 	MoveObjects(ObjectsInScene, DeltaTime, Speed);
 }
@@ -68,7 +74,7 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 
 void AEndlessRunnerGameModeBase::AddToPoints()
 {
-	TotalPoints += 1;
+	TotalPoints += 100;
 
 	OnCoinsCountChanged.Broadcast(TotalPoints);
 }

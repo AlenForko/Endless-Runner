@@ -18,6 +18,8 @@ protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	class UTextBlock* PointsCount;
 
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	class UTextBlock* Lives;
 public:
 	UFUNCTION()
 	void InitializeHud(class AEndlessRunnerGameModeBase* GameMode);

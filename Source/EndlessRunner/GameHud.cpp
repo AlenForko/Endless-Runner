@@ -10,7 +10,8 @@ void UGameHud::InitializeHud(AEndlessRunnerGameModeBase* GameMode)
 {
 	if(GameMode)
 	{
-		PointsCount->SetText(FText::AsNumber(0));
+		PointsCount->SetText(FText::FromString("Score: 0"));
+		Lives->SetText(FText::FromString("Lives: 0"));
 
 		GameMode->OnCoinsCountChanged.AddDynamic(this, &UGameHud::SetCoinsCount);
 	}
@@ -18,5 +19,5 @@ void UGameHud::InitializeHud(AEndlessRunnerGameModeBase* GameMode)
 
 void UGameHud::SetCoinsCount(const int32 CoinsCount)
 {
-	 PointsCount->SetText(FText::AsNumber(CoinsCount));
+	 PointsCount->SetText(FText::FromString("Score: " + CoinsCount));
 }

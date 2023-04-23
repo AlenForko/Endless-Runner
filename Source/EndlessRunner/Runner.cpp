@@ -23,6 +23,8 @@ void ARunner::BeginPlay()
 	RunnerGameMode = Cast<AEndlessRunnerGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	
 	check(RunnerGameMode);
+
+	CurrentHealth = MaxHealth;
 }
 
 // Called to bind functionality to input
@@ -37,6 +39,16 @@ void ARunner::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void ARunner::AddCoin()
 {
 	RunnerGameMode->AddToPoints();
+}
+
+void ARunner::DeductHealth(int32 Health)
+{
+	CurrentHealth -= Health;
+	
+	if(CurrentHealth <= 0)
+	{
+		Destroy();
+	}
 }
 
 void ARunner::MoveRight(float Value)

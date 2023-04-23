@@ -28,6 +28,8 @@ public:
 
 	UFUNCTION()
 	void AddCoin();
+
+	void DeductHealth(int32 Health);
 private:
 
 	UPROPERTY(EditAnywhere)
@@ -35,4 +37,8 @@ private:
 
 	UFUNCTION()
 	void MoveRight(float Value);
+
+	int32 MaxHealth = 3;
+
+	int32 CurrentHealth;
 };
