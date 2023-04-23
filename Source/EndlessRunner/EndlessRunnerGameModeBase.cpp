@@ -23,17 +23,22 @@ void AEndlessRunnerGameModeBase::BeginPlay()
 
 	GameHud = Cast<UGameHud>(CreateWidget(GetWorld(), GameHudClass));
 	check(GameHud) // Checks if the HUD is there, otherwise crash game.
-	
+
+	GameHud->InitializeHud(this);
 	GameHud->AddToViewport();
 	
 	CreateInitialPlatforms();
+
+	GetWorldTimerManager().SetTimer(SpawnTimer, this, &AEndlessRunnerGameModeBase::SpawnNewPlatforms, SpawnDelay, true);
 }
 
 void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	MoveObjects(ObjectsInScene, DeltaTime);
+	//Speed += 0.01f;
+	
+	MoveObjects(ObjectsInScene, DeltaTime, Speed);
 }
 
 void AEndlessRunnerGameModeBase::CreateInitialPlatforms()
@@ -61,19 +66,25 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 	}
 }
 
-void AEndlessRunnerGameModeBase::MoveObjects(TArray<AActor*> Actors, float DeltaTime)
+void AEndlessRunnerGameModeBase::AddToPoints()
+{
+	TotalPoints += 1;
+
+	OnCoinsCountChanged.Broadcast(TotalPoints);
+}
+
+void AEndlessRunnerGameModeBase::MoveObjects(TArray<AActor*> &Actors, float DeltaTime, float ObjectSpeed)
 {
 	for (auto Object : Actors)
 	{
-			
 		FVector ObjectLocation = Object->GetActorLocation();
 
-		ObjectLocation.X -= Speed * DeltaTime;
+		ObjectLocation.X -= ObjectSpeed * DeltaTime;
+		
 		Object->SetActorLocation(ObjectLocation);
-
+		
 		if(ObjectLocation.X <= DestroyLocation)
 		{
-			SpawnNewPlatforms();
 			ObjectsInScene.Remove(Object);
 			Object->Destroy();
 		}
@@ -84,6 +95,8 @@ void AEndlessRunnerGameModeBase::SpawnNewPlatforms()
 {
 	if(GetWorld())
 	{
+		if(!LastPlatform) return;
+		
 		LastPlatform->SpawnObject();
 		
 		FTransform NewTransform = LastPlatform->GetTransform() + NextSpawn;

@@ -12,6 +12,7 @@
 class UUserWidget;
 class ARunningPlatform;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCoinsCountChanged, int32, PointsCount);
 UCLASS()
 class ENDLESSRUNNER_API AEndlessRunnerGameModeBase : public AGameModeBase
 {
@@ -20,6 +21,9 @@ protected:
 	virtual void BeginPlay() override;
 	
 	AEndlessRunnerGameModeBase();
+
+	FTimerHandle SpawnTimer;
+
 	
 public:
 	UFUNCTION()
@@ -31,6 +35,12 @@ public:
 	
 	UPROPERTY(VisibleInstanceOnly, Category = "Runtime")
 	class UGameHud* GameHud;
+
+	UPROPERTY(BlueprintAssignable, Category = "Delegates")
+	FOnCoinsCountChanged OnCoinsCountChanged;
+
+	UFUNCTION()
+	void AddToPoints();
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Config")
@@ -44,8 +54,7 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
 	FTransform NextSpawn;
-
-	UPROPERTY(EditAnywhere, Category = "New Platforms")
+	
 	FTransform NewPlatformSpawn;
 	
 	ARunningPlatform* LastPlatform;
@@ -56,9 +65,15 @@ private:
 	UFUNCTION()
 	void SpawnPlatform();
 
-	void MoveObjects(TArray<AActor*> Actors, float DeltaTime);
+	void MoveObjects(TArray<AActor*>& Actors, float DeltaTime, float ObjectSpeed);
 
 	float DestroyLocation = -1000.f;
 	
-	float Speed = 500.f;
+	float Speed = 600.f;
+	
+	float SpawnDelay = 0.5f;
+	
+	int32 TotalPoints;
+
+	
 };

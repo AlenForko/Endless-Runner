@@ -2,8 +2,11 @@
 
 
 #include "Runner.h"
+
+#include "EndlessRunnerGameModeBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/GameModeBase.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ARunner::ARunner()
@@ -17,9 +20,9 @@ void ARunner::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// RunnerGameMode = Cast<AEndlessRunnerGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	//
-	// check(RunnerGameMode);
+	RunnerGameMode = Cast<AEndlessRunnerGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	
+	check(RunnerGameMode);
 }
 
 // Called to bind functionality to input
@@ -33,7 +36,7 @@ void ARunner::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ARunner::AddCoin()
 {
-	//RunnerGameMode->AddCoin();
+	RunnerGameMode->AddToPoints();
 }
 
 void ARunner::MoveRight(float Value)

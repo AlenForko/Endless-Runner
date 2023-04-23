@@ -38,7 +38,11 @@ void ACoins::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherAc
 		if(Runner)
 		{
 			Runner->AddCoin();
-			Destroy();
+			
+			this->CoinMesh->SetVisibility(false);
+			this->CoinMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			this->SphereCollision->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			
 		}
 	}
 }

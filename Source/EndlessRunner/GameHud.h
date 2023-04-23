@@ -17,4 +17,11 @@ class ENDLESSRUNNER_API UGameHud : public UUserWidget
 protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	class UTextBlock* PointsCount;
+
+public:
+	UFUNCTION()
+	void InitializeHud(class AEndlessRunnerGameModeBase* GameMode);
+
+	UFUNCTION()
+	void SetCoinsCount(const int32 CoinsCount);
 };

@@ -40,7 +40,10 @@ void AObstacle::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Othe
 		{
 			//Deduct from health.
 			//Health--;
-			Destroy();
+			
+			this->ObstacleMesh->SetVisibility(false);
+			this->ObstacleMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			this->BoxCollision->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		}
 	}
 }
