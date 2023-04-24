@@ -22,3 +22,7 @@ The game can be played using the following controls:
 - **Space**: Jump
 - **A Key**: Move left
 - **D Key**: Move right
+
+##Release
+
+You can check out the project in the Release section of this GitHub repository. Please note that the game is a work-in-progress and may not be fully polished or complete.
