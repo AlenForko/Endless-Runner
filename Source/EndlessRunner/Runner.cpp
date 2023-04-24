@@ -44,6 +44,8 @@ void ARunner::AddCoin()
 void ARunner::DeductHealth(int32 Health)
 {
 	CurrentHealth -= Health;
+
+	RunnerGameMode->OnLivesCountChanged.Broadcast(CurrentHealth);
 	
 	if(CurrentHealth <= 0)
 	{

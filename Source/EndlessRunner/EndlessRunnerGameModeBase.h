@@ -41,6 +41,9 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Delegates")
 	FOnCoinsCountChanged OnCoinsCountChanged;
 
+	UPROPERTY(BlueprintAssignable, Category = "Delegates")
+	FOnLivesCountChanged OnLivesCountChanged;
+
 	UFUNCTION()
 	void AddToPoints();
 	

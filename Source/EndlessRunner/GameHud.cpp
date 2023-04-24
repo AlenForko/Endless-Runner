@@ -13,6 +13,7 @@ void UGameHud::InitializeHud(AEndlessRunnerGameModeBase* GameMode)
 		Lives->SetText(FText::FromString("Lives: 3"));
 
 		GameMode->OnCoinsCountChanged.AddDynamic(this, &UGameHud::SetCoinsCount);
+		GameMode->OnLivesCountChanged.AddDynamic(this, &UGameHud::SetLivesCount);
 	}
 }
 
@@ -22,4 +23,12 @@ void UGameHud::SetCoinsCount(const int32 CoinsCount)
 	Score.AppendInt(CoinsCount);
 	
 	PointsCount->SetText(FText::FromString(Score));
+}
+
+void UGameHud::SetLivesCount(const int32 LivesCount)
+{
+	FString Life = "Lives: ";
+	Life.AppendInt(LivesCount);
+	
+	Lives->SetText(FText::FromString(Life));
 }

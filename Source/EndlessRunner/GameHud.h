@@ -26,4 +26,7 @@ public:
 
 	UFUNCTION()
 	void SetCoinsCount(const int32 CoinsCount);
+
+	UFUNCTION()
+	void SetLivesCount(const int32 LivesCount);
 };

@@ -43,7 +43,6 @@ void ARunningPlatform::BeginPlay()
 	check(RunnerGameMode);
 }
 
-
 void ARunningPlatform::SpawnObject()
 {
 	if(ObstacleClass)

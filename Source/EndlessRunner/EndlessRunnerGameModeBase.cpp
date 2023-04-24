@@ -114,7 +114,6 @@ void AEndlessRunnerGameModeBase::UpdateSpeed()
 	if(Speed <= -800.f)
 	{
 		GetWorldTimerManager().ClearTimer(SpeedHandle);
-		UE_LOG(LogTemp, Display, TEXT("Reached max speed"));
 	}
 }
 
