@@ -25,6 +25,7 @@ protected:
 
 	FTimerHandle SpawnTimer;
 
+	FTimerHandle SpeedHandle;
 	
 public:
 	UFUNCTION()
@@ -66,13 +67,18 @@ private:
 	UFUNCTION()
 	void SpawnPlatform();
 
+	UFUNCTION()
+	void UpdateSpeed();
+
 	void MoveObjects(TArray<AActor*>& Actors, float DeltaTime, float ObjectSpeed);
 
 	float DestroyLocation = -1000.f;
 	
 	float Speed = 600.f;
 	
-	float SpawnDelay = 0.5f;
+	float SpawnDelay = 0.7f;
+
+	float SpeedDelay = 2.f;
 	
 	int32 TotalPoints;
 

@@ -32,13 +32,12 @@ void AEndlessRunnerGameModeBase::BeginPlay()
 	CreateInitialPlatforms();
 
 	GetWorldTimerManager().SetTimer(SpawnTimer, this, &AEndlessRunnerGameModeBase::SpawnNewPlatforms, SpawnDelay, true);
+	GetWorldTimerManager().SetTimer(SpeedHandle, this, &AEndlessRunnerGameModeBase::UpdateSpeed, SpeedDelay, true);
 }
 
 void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
-	//Speed += 0.01f;
 	
 	MoveObjects(ObjectsInScene, DeltaTime, Speed);
 }
@@ -105,6 +104,17 @@ void AEndlessRunnerGameModeBase::SpawnNewPlatforms()
 		LastPlatform = GetWorld()->SpawnActor<ARunningPlatform>(PlatformClass, NewTransform);
 		LastPlatform->SetFolderPath(TEXT("Platforms/Obstacles"));
 		ObjectsInScene.Add(LastPlatform);
+	}
+}
+
+void AEndlessRunnerGameModeBase::UpdateSpeed()
+{
+	Speed -= 10.f;
+
+	if(Speed <= -800.f)
+	{
+		GetWorldTimerManager().ClearTimer(SpeedHandle);
+		UE_LOG(LogTemp, Display, TEXT("Reached max speed"));
 	}
 }
 
