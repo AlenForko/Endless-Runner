@@ -62,7 +62,6 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 		if(LastPlatform)
 		{
 			NewPlatformSpawn += NextSpawn;
-			LastPlatform->SetFolderPath(TEXT("Platforms"));	
 		}
 	}
 }
@@ -102,16 +101,15 @@ void AEndlessRunnerGameModeBase::SpawnNewPlatforms()
 		
 		FTransform NewTransform = LastPlatform->GetTransform() + NextSpawn;
 		LastPlatform = GetWorld()->SpawnActor<ARunningPlatform>(PlatformClass, NewTransform);
-		LastPlatform->SetFolderPath(TEXT("Platforms/Obstacles"));
 		ObjectsInScene.Add(LastPlatform);
 	}
 }
 
 void AEndlessRunnerGameModeBase::UpdateSpeed()
 {
-	Speed -= 10.f;
-
-	if(Speed <= -800.f)
+	Speed += 10.f;
+	
+	if(Speed >= 800.f)
 	{
 		GetWorldTimerManager().ClearTimer(SpeedHandle);
 	}

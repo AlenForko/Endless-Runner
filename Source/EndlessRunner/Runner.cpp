@@ -49,6 +49,7 @@ void ARunner::DeductHealth(int32 Health)
 	
 	if(CurrentHealth <= 0)
 	{
+		PlayedIsAlive = false;
 		Destroy();
 	}
 }

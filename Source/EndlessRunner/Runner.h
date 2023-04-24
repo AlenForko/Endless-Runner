@@ -41,4 +41,6 @@ private:
 	int32 MaxHealth = 3;
 
 	int32 CurrentHealth;
+
+	bool PlayedIsAlive = true;
 };
