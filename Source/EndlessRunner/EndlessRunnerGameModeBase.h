@@ -13,6 +13,7 @@ class UUserWidget;
 class ARunningPlatform;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCoinsCountChanged, int32, PointsCount);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLivesCountChanged, int32, Lives);
 UCLASS()
 class ENDLESSRUNNER_API AEndlessRunnerGameModeBase : public AGameModeBase
 {

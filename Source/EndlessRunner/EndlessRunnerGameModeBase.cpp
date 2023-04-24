@@ -39,10 +39,6 @@ void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	
 	//Speed += 0.01f;
-
-	float ElapsedTime = GetWorld()->GetRealTimeSeconds() - StartTime;
-	
-	TotalPoints = FMath::FloorToInt(ElapsedTime);
 	
 	MoveObjects(ObjectsInScene, DeltaTime, Speed);
 }
@@ -74,7 +70,7 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 
 void AEndlessRunnerGameModeBase::AddToPoints()
 {
-	TotalPoints += 100;
+	TotalPoints += 1;
 
 	OnCoinsCountChanged.Broadcast(TotalPoints);
 }
