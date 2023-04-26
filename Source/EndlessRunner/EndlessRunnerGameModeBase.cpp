@@ -118,5 +118,20 @@ void AEndlessRunnerGameModeBase::UpdateSpeed()
 	}
 }
 
+void AEndlessRunnerGameModeBase::GameOver()
+{
+	if(IsValid(GameOverClass))
+	{
+		UGameplayStatics::SetGamePaused(GetWorld(), true);
+		
+		UUserWidget* Widget = CreateWidget(GetWorld(), GameOverClass);
+
+		if(Widget)
+		{
+			Widget->AddToViewport();
+		}
+	}
+}
+
 
 

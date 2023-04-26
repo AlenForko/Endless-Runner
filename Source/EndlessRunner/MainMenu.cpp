@@ -35,7 +35,7 @@ void UMainMenu::QuitGame()
 
 	if(World)
 	{
-		UKismetSystemLibrary::ExecuteConsoleCommand(World, TEXT("quit"));
+		UKismetSystemLibrary::QuitGame(this, 0, EQuitPreference::Quit, false);
 	}
 }
 

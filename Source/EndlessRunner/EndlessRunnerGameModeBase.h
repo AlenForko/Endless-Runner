@@ -46,6 +46,9 @@ public:
 
 	UFUNCTION()
 	void AddToPoints();
+
+	UFUNCTION()
+	void GameOver();
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Config")
@@ -53,6 +56,9 @@ private:
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Config")
 	TSubclassOf<ARunningPlatform> PlatformClass;
+
+	UPROPERTY(EditAnywhere, Category = "Config")
+	TSubclassOf<UUserWidget> GameOverClass;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
 	int32 AmountOfTiles = 11;

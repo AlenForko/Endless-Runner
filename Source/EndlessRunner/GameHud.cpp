@@ -3,7 +3,21 @@
 
 #include "GameHud.h"
 #include "EndlessRunnerGameModeBase.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
+#include "Components/Button.h"
 #include "Components/TextBlock.h"
+#include "Kismet/GameplayStatics.h"
+
+
+void UGameHud::NativeConstruct()
+{
+	if(PauseButton)
+	{
+		PauseButton->OnClicked.AddDynamic(this, &UGameHud::PauseGame);
+	}
+
+	UWidgetBlueprintLibrary::SetInputMode_GameAndUIEx(UGameplayStatics::GetPlayerController(GetWorld(), 0), this);
+}
 
 void UGameHud::InitializeHud(AEndlessRunnerGameModeBase* GameMode)
 {
@@ -31,4 +45,19 @@ void UGameHud::SetLivesCount(const int32 LivesCount)
 	Life.AppendInt(LivesCount);
 	
 	Lives->SetText(FText::FromString(Life));
+}
+
+void UGameHud::PauseGame()
+{
+	if(IsValid(PauseMenuWidgetClass))
+	{
+		UGameplayStatics::SetGamePaused(GetWorld(), true);
+		
+		UUserWidget* Widget = CreateWidget(GetWorld(), PauseMenuWidgetClass);
+
+		if(Widget)
+		{
+			Widget->AddToViewport();
+		}
+	}
 }

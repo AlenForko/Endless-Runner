@@ -4,9 +4,12 @@
 #include "MainMenuGameModeBase.h"
 
 #include "Blueprint/UserWidget.h"
+#include "Kismet/GameplayStatics.h"
 
 void AMainMenuGameModeBase::BeginPlay()
 {
+	UGameplayStatics::GetPlayerController(GetWorld(), 0)->bShowMouseCursor = true;
+	
 	if(IsValid(MainMenuWidgetClass))
 	{
 		UUserWidget* Widget = CreateWidget(GetWorld(), MainMenuWidgetClass);
