@@ -75,7 +75,9 @@ void AEndlessRunnerGameModeBase::AddToPoints()
 
 void AEndlessRunnerGameModeBase::MoveObjects(TArray<AActor*> &Actors, float DeltaTime, float ObjectSpeed)
 {
-	for (auto Object : Actors)
+	TArray<AActor*> ActorsCopy = Actors;
+
+	for (auto Object : ActorsCopy)
 	{
 		FVector ObjectLocation = Object->GetActorLocation();
 
@@ -85,6 +87,7 @@ void AEndlessRunnerGameModeBase::MoveObjects(TArray<AActor*> &Actors, float Delt
 		
 		if(ObjectLocation.X <= DestroyLocation)
 		{
+			Actors.Remove(Object);
 			ObjectsInScene.Remove(Object);
 			Object->Destroy();
 		}

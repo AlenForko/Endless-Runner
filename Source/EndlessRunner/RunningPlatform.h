@@ -49,12 +49,6 @@ protected:
 	
 	UPROPERTY(EditDefaultsOnly)
 	class UArrowComponent* RightLane;
-	
-	UPROPERTY(EditAnywhere, Category = "Platform Speed")
-	float Speed = 150;
-
-	UPROPERTY(EditAnywhere)
-	float DestroyPosition;
 
 	FVector CurrentLocation;
 

@@ -61,7 +61,8 @@ private:
 	FTransform NextSpawn;
 	
 	FTransform NewPlatformSpawn;
-	
+
+	UPROPERTY()
 	ARunningPlatform* LastPlatform;
 
 	UFUNCTION()
