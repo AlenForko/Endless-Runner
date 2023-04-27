@@ -3,7 +3,9 @@
 
 #include "MainMenu.h"
 
+#include "SaveGameHighScore.h"
 #include "Components/Button.h"
+#include "Components/TextBlock.h"
 #include "Kismet/GameplayStatics.h"
 
 void UMainMenu::NativeConstruct()
@@ -17,6 +19,21 @@ void UMainMenu::NativeConstruct()
 	{
 		ExitButton->OnClicked.AddDynamic(this, &UMainMenu::QuitGame);
 	}
+	
+	USaveGameHighScore* SaveGameInstance = Cast<USaveGameHighScore>(UGameplayStatics::LoadGameFromSlot("HighScore", 0));
+	if (SaveGameInstance)
+	{
+		HighscoreText->SetText(FText::AsNumber(SaveGameInstance->HighScore));
+	}
+	else
+	{
+		HighscoreText->SetText(FText::AsNumber(0));
+	}
+
+	USaveGameHighScore* SaveGame = USaveGameHighScore::Load();
+	FString HighScore = "HighScore: ";
+	HighScore.AppendInt(SaveGame->HighScore);
+	HighscoreText->SetText(FText::FromString(HighScore));
 }
 
 void UMainMenu::StartGame()

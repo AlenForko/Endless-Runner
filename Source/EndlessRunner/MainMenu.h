@@ -9,11 +9,12 @@
 /**
  * 
  */
+class UTextBlock;
 UCLASS()
 class ENDLESSRUNNER_API UMainMenu : public UUserWidget
 {
 	GENERATED_BODY()
-
+	
 protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	class UButton* StartButton;
@@ -21,6 +22,9 @@ protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	class UButton* ExitButton;
 
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UTextBlock* HighscoreText;
+	
 	virtual void NativeConstruct() override;
 	
 	UFUNCTION()

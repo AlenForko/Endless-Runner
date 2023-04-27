@@ -6,7 +6,9 @@
 #include "GameHud.h"
 #include "Obstacle.h"
 #include "RunningPlatform.h"
+#include "SaveGameHighScore.h"
 #include "Blueprint/UserWidget.h"
+#include "GameFramework/SaveGame.h"
 #include "Kismet/GameplayStatics.h"
 
 AEndlessRunnerGameModeBase::AEndlessRunnerGameModeBase()
@@ -129,6 +131,9 @@ void AEndlessRunnerGameModeBase::GameOver()
 		if(Widget)
 		{
 			Widget->AddToViewport();
+
+			USaveGameHighScore* SaveGame = USaveGameHighScore::Load();
+			SaveGame->Save(TotalPoints);
 		}
 	}
 }

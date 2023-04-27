@@ -27,9 +27,12 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UFUNCTION()
-	void AddCoin();
+	void AddCoin() const;
 
 	void DeductHealth(int32 Health);
+	
+	bool bPlayedIsAlive = true;
+	
 private:
 
 	UPROPERTY(EditAnywhere)
@@ -41,6 +44,4 @@ private:
 	int32 MaxHealth = 3;
 
 	int32 CurrentHealth;
-
-	bool PlayedIsAlive = true;
 };

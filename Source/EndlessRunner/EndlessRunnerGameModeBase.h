@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "HighScoreManager.h"
 #include "GameFramework/GameModeBase.h"
 #include "EndlessRunnerGameModeBase.generated.h"
 
@@ -33,6 +34,7 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY()
 	TArray<AActor*> ObjectsInScene;
 	
 	UPROPERTY(VisibleInstanceOnly, Category = "Runtime")
@@ -49,6 +51,9 @@ public:
 
 	UFUNCTION()
 	void GameOver();
+
+	UPROPERTY()
+	int32 TotalPoints;
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Config")
@@ -89,8 +94,6 @@ private:
 	float SpawnDelay = 0.7f;
 
 	float SpeedDelay = 2.f;
-	
-	int32 TotalPoints;
 
 	float StartTime;
 };

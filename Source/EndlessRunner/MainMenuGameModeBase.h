@@ -13,10 +13,11 @@ UCLASS()
 class ENDLESSRUNNER_API AMainMenuGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-
+	
 public:
 	UPROPERTY(EditAnywhere, Category = "Config")
 	TSubclassOf<UUserWidget> MainMenuWidgetClass;
 
 	virtual void BeginPlay() override;
+	
 };

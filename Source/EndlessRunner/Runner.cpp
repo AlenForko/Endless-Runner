@@ -36,7 +36,7 @@ void ARunner::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAction("Jump", EInputEvent::IE_Pressed, this, &ACharacter::Jump);
 }
 
-void ARunner::AddCoin()
+void ARunner::AddCoin() const
 {
 	RunnerGameMode->AddToPoints();
 }
@@ -49,6 +49,7 @@ void ARunner::DeductHealth(int32 Health)
 	
 	if(CurrentHealth <= 0)
 	{
+		bPlayedIsAlive = false;	
 		RunnerGameMode->GameOver();
 		Destroy();
 	}
