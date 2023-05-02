@@ -23,25 +23,25 @@ protected:
 	class AEndlessRunnerGameModeBase* RunnerGameMode;
 
 public:	
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	UFUNCTION()
 	void AddCoin() const;
 
+	UFUNCTION()
 	void DeductHealth(int32 Health);
+
+	UFUNCTION()
+	void SetPlayerNumber(int32 NewPlayerNumber);
 	
-	bool bPlayedIsAlive = true;
+	UPROPERTY(EditAnywhere)
+	int32 PlayerNumber;
 	
 private:
 
 	UPROPERTY(EditAnywhere)
 	float MovementSpeed;
-
-	UFUNCTION()
-	void MoveRight(float Value);
-
+	
 	int32 MaxHealth = 3;
 
 	int32 CurrentHealth;
+	
 };

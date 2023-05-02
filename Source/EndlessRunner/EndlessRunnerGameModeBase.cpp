@@ -2,13 +2,12 @@
 
 
 #include "EndlessRunnerGameModeBase.h"
-
 #include "GameHud.h"
 #include "Obstacle.h"
+#include "Runner.h"
 #include "RunningPlatform.h"
 #include "SaveGameHighScore.h"
 #include "Blueprint/UserWidget.h"
-#include "GameFramework/SaveGame.h"
 #include "Kismet/GameplayStatics.h"
 
 AEndlessRunnerGameModeBase::AEndlessRunnerGameModeBase()
@@ -20,7 +19,7 @@ AEndlessRunnerGameModeBase::AEndlessRunnerGameModeBase()
 void AEndlessRunnerGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	StartTime = GetWorld()->GetRealTimeSeconds();
 
 	UGameplayStatics::GetPlayerController(GetWorld(), 0)->bShowMouseCursor = true;

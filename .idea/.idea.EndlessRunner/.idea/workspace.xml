@@ -9,19 +9,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3acffd1-2a28-49e4-8784-359a8835c410" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/SaveGameHighScore.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/SaveGameHighScore.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Actors/BP_Runner1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/BP_InputManager.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/GameModes/BP_EndlessRunnerGameModeBase.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/GameModes/BP_MainMenuGameModeBase.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/InputManager.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/InputManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UMG/Widget_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UMG/Widget_MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Actors/BP_HiddenPlatform.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Actors/BP_HiddenPlatform.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animations/Beta_HighLimbsGeoSG3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Beta_HighLimbsGeoSG3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP_MainMenuGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_MainMenuGameModeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/MainMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MainMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MainMenu.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/HighScoreManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/HighScoreManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/HighScoreManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/HighScoreManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/MainMenu.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/MainMenu.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/MainMenu.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/MainMenu.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/MainMenuGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/MainMenuGameModeBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/MainMenuGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/MainMenuGameModeBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" afterDir="false" />
     </list>
@@ -37,8 +43,8 @@
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameHud.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameOver.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameOver.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/HighScoreManager.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/HighScoreManager.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/InputManager.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/InputManager.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/MainMenu.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/MainMenu.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/MainMenuGameModeBase.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -221,7 +227,11 @@
       <workItem from="1682334024070" duration="8686000" />
       <workItem from="1682500721096" duration="1584000" />
       <workItem from="1682502801947" duration="17194000" />
-      <workItem from="1682586982198" duration="1607000" />
+      <workItem from="1682586982198" duration="12318000" />
+      <workItem from="1682602845461" duration="123000" />
+      <workItem from="1682886632898" duration="2358000" />
+      <workItem from="1682953020463" duration="687000" />
+      <workItem from="1683028606383" duration="7406000" />
     </task>
     <servers />
   </component>
