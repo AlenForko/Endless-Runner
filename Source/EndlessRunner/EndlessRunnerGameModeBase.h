@@ -54,7 +54,7 @@ public:
 	void GameOver();
 
 	UPROPERTY()
-	int32 TotalPoints;
+	float TotalPoints = 0;
 
 	bool bObstaclePassed = false;
 private:

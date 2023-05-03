@@ -39,7 +39,15 @@ void UGameHud::SetCoinsCount(const int32 CoinsCount)
 	PointsCount->SetText(FText::FromString(Score));
 }
 
-void UGameHud::SetLivesCount(const int32 LivesCount)
+void UGameHud::UpdatePoints(const int32 CoinsCount)
+{
+	FString Score = "Score: ";
+	Score.AppendInt(CoinsCount);
+	
+	PointsCount->SetText(FText::FromString(Score));
+}
+
+void UGameHud::SetLivesCount(int32 LivesCount)
 {
 	FString Life = "Lives: ";
 	Life.AppendInt(LivesCount);
