@@ -10,9 +10,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c3acffd1-2a28-49e4-8784-359a8835c410" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/GameHud.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/GameHud.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/GameHud.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/GameHud.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +28,22 @@
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Coins.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameHud.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameHud.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameOver.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/GameOver.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/InputManager.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/InputManager.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/MainMenu.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/MainMenu.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/MainMenuGameModeBase.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/MainMenuGameModeBase.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Obstacle.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Obstacle.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/PauseMenu.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/PauseMenu.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/Runner.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/SaveGameHighScore.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/EndlessRunner/SaveGameHighScore.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -196,6 +212,14 @@
       <workItem from="1682264935959" duration="754000" />
       <workItem from="1682274433173" duration="3315000" />
       <workItem from="1682334024070" duration="8686000" />
+      <workItem from="1682500721096" duration="1584000" />
+      <workItem from="1682502801947" duration="17194000" />
+      <workItem from="1682586982198" duration="12318000" />
+      <workItem from="1682602845461" duration="123000" />
+      <workItem from="1682886632898" duration="2358000" />
+      <workItem from="1682953020463" duration="687000" />
+      <workItem from="1683028606383" duration="8508000" />
+      <workItem from="1683104408921" duration="6311000" />
     </task>
     <servers />
   </component>

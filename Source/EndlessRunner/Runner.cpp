@@ -2,10 +2,8 @@
 
 
 #include "Runner.h"
-
 #include "EndlessRunnerGameModeBase.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "GameFramework/GameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -27,16 +25,7 @@ void ARunner::BeginPlay()
 	CurrentHealth = MaxHealth;
 }
 
-// Called to bind functionality to input
-void ARunner::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	PlayerInputComponent->BindAxis("Move Right", this, &ARunner::MoveRight);
-	PlayerInputComponent->BindAction("Jump", EInputEvent::IE_Pressed, this, &ACharacter::Jump);
-}
-
-void ARunner::AddCoin()
+void ARunner::AddCoin() const
 {
 	RunnerGameMode->AddToPoints();
 }
@@ -49,13 +38,15 @@ void ARunner::DeductHealth(int32 Health)
 	
 	if(CurrentHealth <= 0)
 	{
-		PlayedIsAlive = false;
+		RunnerGameMode->GameOver();
 		Destroy();
 	}
 }
 
-void ARunner::MoveRight(float Value)
+void ARunner::SetPlayerNumber(int32 NewPlayerNumber)
 {
-	AddMovementInput(GetActorRightVector() * Value);
+	PlayerNumber = NewPlayerNumber;
 }
+
+
 

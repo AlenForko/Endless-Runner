@@ -29,13 +29,6 @@ protected:
 	virtual void BeginPlay() override;
 	
 private:
-	
-	FVector ObstacleLocation;
-
-	float DestroyLocation = -1000.f;
-
-	float ObstacleSpeed = 600.f;
-
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp,
 		class AActor* OtherActor, class UPrimitiveComponent* OtherComp,

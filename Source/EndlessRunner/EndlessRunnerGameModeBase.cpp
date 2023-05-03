@@ -2,10 +2,11 @@
 
 
 #include "EndlessRunnerGameModeBase.h"
-
 #include "GameHud.h"
 #include "Obstacle.h"
+#include "Runner.h"
 #include "RunningPlatform.h"
+#include "SaveGameHighScore.h"
 #include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -18,7 +19,7 @@ AEndlessRunnerGameModeBase::AEndlessRunnerGameModeBase()
 void AEndlessRunnerGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	StartTime = GetWorld()->GetRealTimeSeconds();
 
 	UGameplayStatics::GetPlayerController(GetWorld(), 0)->bShowMouseCursor = true;
@@ -40,6 +41,10 @@ void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	
 	MoveObjects(ObjectsInScene, DeltaTime, Speed);
+	
+	TotalPoints += DeltaTime;
+
+	OnCoinsCountChanged.Broadcast(TotalPoints);
 }
 
 void AEndlessRunnerGameModeBase::CreateInitialPlatforms()
@@ -68,14 +73,16 @@ void AEndlessRunnerGameModeBase::SpawnPlatform()
 
 void AEndlessRunnerGameModeBase::AddToPoints()
 {
-	TotalPoints += 1;
+	TotalPoints += 10;
 
 	OnCoinsCountChanged.Broadcast(TotalPoints);
 }
 
 void AEndlessRunnerGameModeBase::MoveObjects(TArray<AActor*> &Actors, float DeltaTime, float ObjectSpeed)
 {
-	for (auto Object : Actors)
+	TArray<AActor*> ActorsCopy = Actors;
+
+	for (auto Object : ActorsCopy)
 	{
 		FVector ObjectLocation = Object->GetActorLocation();
 
@@ -85,6 +92,11 @@ void AEndlessRunnerGameModeBase::MoveObjects(TArray<AActor*> &Actors, float Delt
 		
 		if(ObjectLocation.X <= DestroyLocation)
 		{
+			if(Object->IsA<AObstacle>())
+			{
+				bObstaclePassed = true;
+			}
+			Actors.Remove(Object);
 			ObjectsInScene.Remove(Object);
 			Object->Destroy();
 		}
@@ -112,6 +124,24 @@ void AEndlessRunnerGameModeBase::UpdateSpeed()
 	if(Speed >= 800.f)
 	{
 		GetWorldTimerManager().ClearTimer(SpeedHandle);
+	}
+}
+
+void AEndlessRunnerGameModeBase::GameOver()
+{
+	if(IsValid(GameOverClass))
+	{
+		UGameplayStatics::SetGamePaused(GetWorld(), true);
+		
+		UUserWidget* Widget = CreateWidget(GetWorld(), GameOverClass);
+
+		if(Widget)
+		{
+			Widget->AddToViewport();
+
+			USaveGameHighScore* SaveGame = USaveGameHighScore::Load();
+			SaveGame->Save(TotalPoints);
+		}
 	}
 }
 

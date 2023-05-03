@@ -11,6 +11,8 @@
  */
 class UUserWidget;
 class ARunningPlatform;
+class ARunner;
+class APlayerStart;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCoinsCountChanged, int32, PointsCount);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLivesCountChanged, int32, Lives);
@@ -33,6 +35,7 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY()
 	TArray<AActor*> ObjectsInScene;
 	
 	UPROPERTY(VisibleInstanceOnly, Category = "Runtime")
@@ -46,7 +49,14 @@ public:
 
 	UFUNCTION()
 	void AddToPoints();
-	
+
+	UFUNCTION()
+	void GameOver();
+
+	UPROPERTY()
+	float TotalPoints = 0;
+
+	bool bObstaclePassed = false;
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Config")
 	TSubclassOf<UUserWidget> GameHudClass;
@@ -54,16 +64,21 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Config")
 	TSubclassOf<ARunningPlatform> PlatformClass;
 
+	UPROPERTY(EditAnywhere, Category = "Config")
+	TSubclassOf<UUserWidget> GameOverClass;
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
 	int32 AmountOfTiles = 11;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Platform")
 	FTransform NextSpawn;
-	
-	FTransform NewPlatformSpawn;
-	
-	ARunningPlatform* LastPlatform;
 
+	UPROPERTY()
+	FTransform NewPlatformSpawn;
+
+	UPROPERTY()
+	ARunningPlatform* LastPlatform;
+	
 	UFUNCTION()
 	void CreateInitialPlatforms();
 
@@ -73,8 +88,9 @@ private:
 	UFUNCTION()
 	void UpdateSpeed();
 
+	UFUNCTION()
 	void MoveObjects(TArray<AActor*>& Actors, float DeltaTime, float ObjectSpeed);
-
+	
 	float DestroyLocation = -1000.f;
 	
 	float Speed = 600.f;
@@ -82,8 +98,8 @@ private:
 	float SpawnDelay = 0.7f;
 
 	float SpeedDelay = 2.f;
-	
-	int32 TotalPoints;
 
 	float StartTime;
+
+	int32 PlayerAmount;
 };
