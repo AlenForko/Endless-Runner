@@ -55,25 +55,37 @@ void ARunningPlatform::SpawnObject()
 
 void ARunningPlatform::SpawnLaneObstacles(const UArrowComponent* Lane) const
 {
-	const float RandomValue = FMath::RandRange(0, 1);
+	const float RandomValue = FMath::FRand();
 
 	FActorSpawnParameters SpawnParameters;
 	SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-
+	
 	const FTransform& SpawnLocation = Lane->GetComponentTransform();
 
-	if(UKismetMathLibrary::InRange_FloatFloat(RandomValue,
-		0.5,
-		1,
-		true,
-		true))
+	//If the bool is true, spawn a coin to reward the player with a 10-25% chance rate.
+	if(RunnerGameMode->bObstaclePassed && UKismetMathLibrary::InRange_FloatFloat(RandomValue,
+	0.1,
+	0.25,
+	true,
+	true))
+	{
+		ACoins* Coins = GetWorld()->SpawnActor<ACoins>(CoinsClass, SpawnLocation, SpawnParameters);
+		RunnerGameMode->ObjectsInScene.Add(Coins);
+
+		RunnerGameMode->bObstaclePassed = false;
+	}
+	else if(UKismetMathLibrary::InRange_FloatFloat(RandomValue,
+	0.5,
+	1,
+	true,
+	true))
 	{
 		AObstacle* Obstacle = GetWorld()->SpawnActor<AObstacle>(ObstacleClass, SpawnLocation, SpawnParameters);
 		RunnerGameMode->ObjectsInScene.Add(Obstacle);
 	}
 	else
 	{
-	    ACoins* Coins = GetWorld()->SpawnActor<ACoins>(CoinsClass, SpawnLocation, SpawnParameters);
+		ACoins* Coins = GetWorld()->SpawnActor<ACoins>(CoinsClass, SpawnLocation, SpawnParameters);
 		RunnerGameMode->ObjectsInScene.Add(Coins);
 	}
 }

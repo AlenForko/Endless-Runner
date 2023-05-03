@@ -23,8 +23,7 @@ void AInputManager::BeginPlay()
 	Player1 = Cast<ARunner>(Runners[0]);
 	Player2 = Cast<ARunner>(Runners[1]);
 
-	check(Player1 && Player2);
-	UE_LOG(LogTemp, Display, TEXT("Player 1 %s & Player2 %s"), *Player1->GetActorNameOrLabel(), *Player2->GetActorNameOrLabel());
+	check(Player1 && Player2)
 
 	
 }

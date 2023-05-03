@@ -55,7 +55,8 @@ public:
 
 	UPROPERTY()
 	int32 TotalPoints;
-	
+
+	bool bObstaclePassed = false;
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "Config")
 	TSubclassOf<UUserWidget> GameHudClass;

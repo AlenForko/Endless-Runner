@@ -41,6 +41,8 @@ void AEndlessRunnerGameModeBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	
 	MoveObjects(ObjectsInScene, DeltaTime, Speed);
+
+	TotalPoints += DeltaTime;
 }
 
 void AEndlessRunnerGameModeBase::CreateInitialPlatforms()
@@ -88,6 +90,10 @@ void AEndlessRunnerGameModeBase::MoveObjects(TArray<AActor*> &Actors, float Delt
 		
 		if(ObjectLocation.X <= DestroyLocation)
 		{
+			if(Object->IsA<AObstacle>())
+			{
+				bObstaclePassed = true;
+			}
 			Actors.Remove(Object);
 			ObjectsInScene.Remove(Object);
 			Object->Destroy();

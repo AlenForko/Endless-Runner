@@ -9,27 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3acffd1-2a28-49e4-8784-359a8835c410" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Actors/BP_Runner1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/BP_InputManager.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/GameModes/BP_EndlessRunnerGameModeBase.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/GameModes/BP_MainMenuGameModeBase.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/InputManager.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/EndlessRunner/InputManager.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animations/Beta_HighLimbsGeoSG4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Animations/Running__1_1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EndlessRunner/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Actors/BP_HiddenPlatform.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Actors/BP_HiddenPlatform.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Actors/BP_Runner.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Beta_HighLimbsGeoSG3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Beta_HighLimbsGeoSG3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_EndlessRunnerGameModeBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_MainMenuGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_MainMenuGameModeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animations/Running__1_.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Running__1_.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/MainMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MainMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/FileSystemMappings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/EndlessRunnerGameModeBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/Runner.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/InputManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/InputManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/EndlessRunner/RunningPlatform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/EndlessRunner/RunningPlatform.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +219,8 @@
       <workItem from="1682602845461" duration="123000" />
       <workItem from="1682886632898" duration="2358000" />
       <workItem from="1682953020463" duration="687000" />
-      <workItem from="1683028606383" duration="7406000" />
+      <workItem from="1683028606383" duration="8508000" />
+      <workItem from="1683104408921" duration="4313000" />
     </task>
     <servers />
   </component>
